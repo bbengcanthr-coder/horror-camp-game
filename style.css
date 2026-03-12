@@ -1,58 +1,107 @@
+/* นำเข้าฟอนต์ Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&family=Creepster&family=Sarabun:wght@400;700&display=swap');
+
 body {
-    background-color: #000;
-    color: #eee;
-    font-family: 'Sarabun', sans-serif;
+    background-color: #050000; /* ดำสนิทแบบมีโทนแดงมืด */
+    color: #b0b0b0;
+    font-family: 'Kanit', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    /* เพิ่ม Grain หรือ Noise เล็กน้อยให้ดูเหมือนฟิล์มเก่า */
+    background-image: radial-gradient(circle, #1a0000 0%, #000 100%);
 }
 
 #game-container {
-    width: 85%;
+    width: 90%;
     max-width: 500px;
-    background: #111;
+    background: rgba(10, 10, 10, 0.95);
     padding: 30px;
-    border: 1px solid #400;
-    box-shadow: 0 0 15px #f003;
-    border-radius: 10px;
-    text-align: center;
+    border: 2px solid #600; /* ขอบสีเลือดนก */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.1), inset 0 0 20px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* เอฟเฟกต์ไฟกะพริบที่ Container */
+#game-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(255, 0, 0, 0.02);
+    pointer-events: none;
+    animation: flicker 4s infinite;
 }
 
 #header {
-    font-size: 0.7em;
-    letter-spacing: 2px;
-    color: #555;
-    margin-bottom: 20px;
-    text-transform: uppercase;
+    font-family: 'Creepster', 'Kanit', sans-serif;
+    font-size: 0.9em;
+    letter-spacing: 3px;
+    color: #800; /* สีแดงมืด */
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px #000;
+    border-bottom: 1px solid #300;
+    padding-bottom: 10px;
 }
 
 #text-display {
-    font-size: 1.15em;
-    line-height: 1.7;
-    margin-bottom: 30px;
-    min-height: 120px;
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    min-height: 140px;
     text-align: left;
-    color: #ccc;
+    color: #ddd;
+    /* ใส่ Drop Shadow ให้ตัวหนังสือดูมีมิติหลอนๆ */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
+/* ปรับแต่งปุ่มให้ดูน่ากลัว */
 .choice-btn {
     display: block;
     width: 100%;
-    padding: 15px;
-    margin-bottom: 12px;
-    background: #1a1a1a;
-    border: 1px solid #333;
-    color: #fff;
+    padding: 16px;
+    margin-bottom: 15px;
+    background: #0a0a0a;
+    border: 1px solid #444;
+    color: #999;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 0; /* เปลี่ยนเป็นเหลี่ยมดูดุดันกว่า */
     font-size: 1em;
-    transition: all 0.3s ease;
+    font-weight: 300;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .choice-btn:hover {
-    background: #300;
+    background: #200; /* แดงเข้ม */
     border-color: #f00;
-    color: #f00;
+    color: #fff;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+}
+
+/* เพิ่มเส้นเลือดขีดๆ เวลา Hover */
+.choice-btn:active {
+    background: #500;
+}
+
+/* Animation ไฟกะพริบ */
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.3; }
+}
+
+/* ปรับแต่ง Scrollbar ให้ดูมืดๆ */
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #000;
+}
+::-webkit-scrollbar-thumb {
+    background: #300;
 }
