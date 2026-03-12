@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ค่ายมรณะ: วัดศรีปัญญาธรรมาราม</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="header">ม.6/1 ปากคลองวิทยาคม | ค่ายธรรมะ</div>
+        <div id="scene-image"></div>
+        <div id="text-display">
+            ยินดีต้อนรับสู่คืนที่ไร้แสงดาว... คลิก "เริ่มเกม" เพื่อเข้าสู่ความมืด
+        </div>
+        <div id="choices-container">
+            <button class="choice-btn" onclick="startGame()">เริ่มเกม</button>
+        </div>
+    </div>
+
+    <audio id="bgm" loop src="https://www.soundjay.com/ambient/sounds/ambient-scary-01.mp3"></audio>
+    <audio id="sfx-click" src="https://www.soundjay.com/button/sounds/button-10.mp3"></audio>
+    <audio id="sfx-ghost" src="https://www.soundjay.com/human/sounds/human-scream-01.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
