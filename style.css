@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;500&family=Creepster&family=Sarabun:wght@400;700&display=swap');
 
 body {
-    background-color: #050000; /* ดำสนิทแบบมีโทนแดงมืด */
+    background-color: #050000;
     color: #b0b0b0;
     font-family: 'Kanit', sans-serif;
     display: flex;
